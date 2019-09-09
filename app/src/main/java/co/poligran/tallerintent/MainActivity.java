@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button nextButton;  // Button next item
     private Button changeButton; // Button change capture mode, Video or Image
     private Button captureButton;   // Button that captures a Video or a Picture
+    private Button galleryButton;   // Button that opens GalleryActivity
 
 
     private ImageView actualImage;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         nextButton = (Button) findViewById(R.id.next);
         changeButton = (Button) findViewById(R.id.changeCapture);
         captureButton = (Button) findViewById(R.id.capture);
+        galleryButton = (Button) findViewById(R.id.openGallery);
     }
 
     public void changeCapture(View view) {
@@ -172,5 +174,9 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    public void openGallery(View view){
+        Intent openActivityIntent = new Intent(this,GalleryActivity.class);
+        startActivity(openActivityIntent);
+    }
 
 }
