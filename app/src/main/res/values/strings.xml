@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TallerIntent</string>
+    <string name="action_settings">Settings</string>
+    <string name="take_picture">Tomar Foto</string>
+    <string name="take_video">Grabar Video</string>
+    <string name="video">Video</string>
+    <string name="picture">Foto</string>
+</resources>
