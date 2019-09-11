@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorSoftBlack"
     tools:context=".MainActivity">
 
     <Button
@@ -32,6 +33,32 @@
         app:layout_constraintTop_toBottomOf="@+id/hor1" />
 
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="Imagen"
+        app:layout_constraintBottom_toTopOf="@+id/hor2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hor1"
+        tools:srcCompat="@tools:sample/avatars" />
+    <!-- android:drawableLeft="@android:drawable/ic_menu_camera" -->
+
+
+    <VideoView
+        android:id="@+id/video"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="Video"
+        android:onClick="setVideo"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/hor2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hor1"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/capture"
         style="@style/Widget.AppCompat.Button.Colored"
@@ -40,13 +67,11 @@
         android:layout_weight="0.2"
         android:onClick="takePic"
         android:text="@string/take_picture"
-        android:textSize="40sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hor2"/>
-       <!-- android:drawableLeft="@android:drawable/ic_menu_camera" -->
-
+        app:layout_constraintTop_toTopOf="@+id/hor2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
@@ -58,26 +83,34 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/_ver1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.25" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changeCapture"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="0.5"
+            android:background="@color/colorPrimaryDark"
+            android:backgroundTintMode="src_atop"
             android:onClick="changeCapture"
             android:text="Video"
             android:textSize="20sp"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/_ver2"
-            app:layout_constraintStart_toEndOf="@+id/_ver1" />
+            app:layout_constraintStart_toEndOf="@+id/_ver1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/openGallery"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_margin="@dimen/fab_margin"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="openGallery"
+            android:text="Gallery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/_ver2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/_ver2"
@@ -86,45 +119,15 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.75" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/openGallery"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:onClick="openGallery"
-            android:text="Gallery"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/_ver2" />
-
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/_ver1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="Imagen"
-        app:layout_constraintBottom_toTopOf="@+id/hor2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hor1"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <VideoView
-        android:id="@+id/video"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="invisible"
-        android:onClick="setVideo"
-        android:contentDescription="Video"
-        app:layout_constraintBottom_toTopOf="@+id/hor2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hor1"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/hor1"
@@ -145,7 +148,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.9" />
 
 
     <androidx.constraintlayout.widget.Guideline
